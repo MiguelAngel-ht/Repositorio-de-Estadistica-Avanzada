@@ -1,16 +1,5 @@
 ---
-jupyter:
-  colab:
-    authorship_tag: ABX9TyOImgXnlI9RssBkxxhQjiqw
-    mount_file_id: 1OjvDkoonYGu9sSuH1QgA9tILpN60Ysxr
-    name: Tarea 3 Prueba de Hipótesis .ipynb
-  kernelspec:
-    display_name: Python 3
-    name: python3
-  language_info:
-    name: python
-  nbformat: 4
-  nbformat_minor: 0
+        FROM COLAB NOTEBOOK
 ---
 
 ::: {.cell .markdown id="vPrKH7Sj5KQS"}
@@ -21,7 +10,7 @@ jupyter:
 
 ------------------------------------------------------------------------
 
-##Miguel Ángel Hernández Tapia
+## Miguel Ángel
 
 ------------------------------------------------------------------------
 :::
@@ -31,7 +20,7 @@ jupyter:
 :::
 
 ::: {.cell .markdown id="wnB7HMnl5HF6"}
-![image.png](vertopal_f831805db08046958e88670ac9eb228a/06002f172d0c52ad15b9963c97b1509ba99c70b0.png)
+![image.png](images/06002f172d0c52ad15b9963c97b1509ba99c70b0.png)
 :::
 
 ::: {.cell .markdown id="vySEWCl8JEOH"}
@@ -89,7 +78,7 @@ rechazada. Por lo que la diferencia entre las presiones es diferente de
 ::: {.cell .markdown id="zjopH4Q-ZCfN"}
 # **Problema 57**
 
-![image.png](vertopal_f831805db08046958e88670ac9eb228a/306643b703b8ac6d2345852f362ab1b64548b948.png)
+![image.png](images/306643b703b8ac6d2345852f362ab1b64548b948.png)
 :::
 
 ::: {.cell .markdown id="YeYaimumciCl"}
@@ -122,7 +111,7 @@ dice un dato confiable.
 ::: {.cell .markdown id="CkrvuyZRlYrI"}
 # **9.13 Potencia de un antibiótico** {#913-potencia-de-un-antibiótico}
 
-![image.png](vertopal_f831805db08046958e88670ac9eb228a/851d9d5f8da5dafa097c22c6c2e75cf2651502b7.png)
+![image.png](images/851d9d5f8da5dafa097c22c6c2e75cf2651502b7.png)
 :::
 
 ::: {.cell .markdown id="4315StAOmV9D"}
@@ -167,7 +156,7 @@ fabricante, este **NO** tiene una potencia media del 80%
 ::: {.cell .markdown id="UbMstmXjr1va"}
 # **9.37 ¿Café o azul?** {#937-café-o-azul}
 
-![image.png](vertopal_f831805db08046958e88670ac9eb228a/b36d5345d518e710ad7cc435cf04d9a84734c144.png)
+![image.png](images/b36d5345d518e710ad7cc435cf04d9a84734c144.png)
 :::
 
 ::: {.cell .markdown id="UOzteGuItZ76"}
@@ -216,7 +205,7 @@ periódico.
 ::: {.cell .markdown id="FS7Snl0L0ClF"}
 # **Problema 10.5** {#problema-105}
 
-![image.png](vertopal_f831805db08046958e88670ac9eb228a/a7e1ea0c27966454a4c193d9fbc64ae1fc1ba9ba.png)
+![image.png](images/a7e1ea0c27966454a4c193d9fbc64ae1fc1ba9ba.png)
 :::
 
 ::: {.cell .markdown id="7IQiJf4vnnKG"}
@@ -327,7 +316,7 @@ b) como el c) Sí se confirman entre sí.
 ::: {.cell .markdown id="9Rks2ehuTgIj"}
 # **Problema 10.37** {#problema-1037}
 
-![image.png](vertopal_f831805db08046958e88670ac9eb228a/5a6e8293b71f6eacc080ee4ab3c405ae4a9dd0a0.png)
+![image.png](images/5a6e8293b71f6eacc080ee4ab3c405ae4a9dd0a0.png)
 :::
 
 ::: {.cell .markdown id="k4px0ZdYXpbU"}
@@ -424,7 +413,7 @@ tienen distribución normal.
 ::: {.cell .markdown id="mwH82hUmT80c"}
 # **Problema 7.2.2** {#problema-722}
 
-![image.png](vertopal_f831805db08046958e88670ac9eb228a/5b714be13771946c053a4c782fedf49de0069b2f.png)
+![image.png](images/5b714be13771946c053a4c782fedf49de0069b2f.png)
 :::
 
 ::: {.cell .markdown id="-WWJWaaQnP1J"}
@@ -481,7 +470,7 @@ media de edad es menor a 60 años.
 ::: {.cell .markdown id="PRtnPH98UKxJ"}
 # **Problema 7.2.12** {#problema-7212}
 
-![image.png](vertopal_f831805db08046958e88670ac9eb228a/6d1cf73707762bd5198686458400dee571522600.png)
+![image.png](images/6d1cf73707762bd5198686458400dee571522600.png)
 :::
 
 ::: {.cell .markdown id="nmou8aAUve4M"}
@@ -522,7 +511,7 @@ la hipótesis nula y se concluye que la media de celulas en ml no es 12.
 ::: {.cell .markdown id="fKX97qyKUTFU"}
 # **Problema 7.2.18** {#problema-7218}
 
-![image.png](vertopal_f831805db08046958e88670ac9eb228a/2420329a24ab0fabd5c7e0d53f1608b5a43bd01e.png)
+![image.png](images/2420329a24ab0fabd5c7e0d53f1608b5a43bd01e.png)
 :::
 
 ::: {.cell .markdown id="vD38W4LuB--G"}
@@ -561,7 +550,7 @@ presión de sangre sistólica sea mayor que 130.
 ::: {.cell .markdown id="e13154p0UiYd"}
 # **Problema 7.3.10** {#problema-7310}
 
-![image.png](vertopal_f831805db08046958e88670ac9eb228a/e4e4dc853ba76fbf1440d44751f3b16544d7cf31.png)
+![image.png](images/e4e4dc853ba76fbf1440d44751f3b16544d7cf31.png)
 :::
 
 ::: {.cell .markdown id="1flCnA43EjGN"}
@@ -613,7 +602,7 @@ de niños **Sí** difiere.
 ::: {.cell .markdown id="teKdiWxMUqmg"}
 # **Problema 7.5.2** {#problema-752}
 
-![image.png](vertopal_f831805db08046958e88670ac9eb228a/0e36d7e97c14da1c7edcbb9e661d50ea4c0e1f1d.png)
+![image.png](images/0e36d7e97c14da1c7edcbb9e661d50ea4c0e1f1d.png)
 :::
 
 ::: {.cell .markdown id="S1PDZjI8H9qI"}
@@ -652,7 +641,7 @@ hipótesis nula y se concluye que la media de niños gorditos es mayor al
 ::: {.cell .markdown id="8vKx7EvpUyCw"}
 # **Problema 7.8.7** {#problema-787}
 
-![image.png](vertopal_f831805db08046958e88670ac9eb228a/dbec2c96c1bce49280f61f85d5757921a891ef81.png)
+![image.png](images/dbec2c96c1bce49280f61f85d5757921a891ef81.png)
 :::
 
 ::: {.cell .markdown id="Zmd6kxNfLIsb"}
@@ -706,7 +695,7 @@ sea mayor que la de B.
 ::: {.cell .markdown id="rcRI4yqoU6Ki"}
 # **Problema 7.10.2** {#problema-7102}
 
-![image.png](vertopal_f831805db08046958e88670ac9eb228a/b684e6c29fc12b86c711bb6bf7001cbce21eb726.png)
+![image.png](images/b684e6c29fc12b86c711bb6bf7001cbce21eb726.png)
 :::
 
 ::: {.cell .markdown id="RIj1modQVyOa"}
