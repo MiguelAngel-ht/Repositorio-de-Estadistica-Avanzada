@@ -1,0 +1,758 @@
+---
+jupyter:
+  colab:
+    authorship_tag: ABX9TyOImgXnlI9RssBkxxhQjiqw
+    mount_file_id: 1OjvDkoonYGu9sSuH1QgA9tILpN60Ysxr
+    name: Tarea 3 Prueba de Hipótesis .ipynb
+  kernelspec:
+    display_name: Python 3
+    name: python3
+  language_info:
+    name: python
+  nbformat: 4
+  nbformat_minor: 0
+---
+
+::: {.cell .markdown id="vPrKH7Sj5KQS"}
+
+------------------------------------------------------------------------
+
+# **Tarea 3 \| Prueba de Hipótesis** {#tarea-3--prueba-de-hipótesis}
+
+------------------------------------------------------------------------
+
+##Miguel Ángel Hernández Tapia
+
+------------------------------------------------------------------------
+:::
+
+::: {.cell .markdown id="Qh8J7EL-6Vp7"}
+# **Problema 42.** {#problema-42}
+:::
+
+::: {.cell .markdown id="wnB7HMnl5HF6"}
+![image.png](vertopal_f831805db08046958e88670ac9eb228a/06002f172d0c52ad15b9963c97b1509ba99c70b0.png)
+:::
+
+::: {.cell .markdown id="vySEWCl8JEOH"}
+## **Solución:**
+
+Hipótesis: \\ $H_0 : \mu_A - \mu_B = 0$ \\ $H_a : \mu_A - \mu_B ≠ 0$
+:::
+
+::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\",\"height\":225}" executionInfo="{\"elapsed\":164,\"status\":\"ok\",\"timestamp\":1630382636184,\"user\":{\"displayName\":\"Mïjaíl\",\"photoUrl\":\"https://lh3.googleusercontent.com/a-/AOh14GjdZyLBMEjmWLLhhm-7SJgWsRi90GzsM5rncxb5VA=s64\",\"userId\":\"16399021666862393886\"},\"user_tz\":300}" id="l_9qQWf13sTE" outputId="e69520ff-671b-4545-e523-822432e3a8fb"}
+``` python
+before = c(134,122,132,130,128,140,118,127,125,142)
+after = c(140,130,135,126,134,138,124,126,132,144)
+
+s2 = sd(before)
+s1 = sd(after)
+n2 = length(before)
+n1 = length(after)
+x2 = mean(before)
+x1 = mean(after)
+
+z = (x1-x2)/sqrt((s1^2/n1)+(s2^2/n2))
+z
+# ya que m1-m2  p-value es 2 veces el área sobre |z|
+# 2 extremos   z > z_a/2  o     z < -z_a/2  
+
+t.test(before,after)
+# easy way https://www.cyclismo.org/tutorial/R/pValues.html
+```
+
+::: {.output .display_data}
+0.981124018953572
+:::
+
+::: {.output .display_data}
+
+    	Welch Two Sample t-test
+
+    data:  before and after
+    t = -0.98112, df = 17.681, p-value = 0.3398
+    alternative hypothesis: true difference in means is not equal to 0
+    95 percent confidence interval:
+     -9.746757  3.546757
+    sample estimates:
+    mean of x mean of y 
+        129.8     132.9 
+:::
+:::
+
+::: {.cell .markdown id="eZ0Brb5dYrvt"}
+**Conclusión:** La hipótesis alternativa es verdadera y la nula es
+rechazada. Por lo que la diferencia entre las presiones es diferente de
+0 se concluye que el medicamento sí cambia la presión.
+:::
+
+::: {.cell .markdown id="zjopH4Q-ZCfN"}
+# **Problema 57**
+
+![image.png](vertopal_f831805db08046958e88670ac9eb228a/306643b703b8ac6d2345852f362ab1b64548b948.png)
+:::
+
+::: {.cell .markdown id="YeYaimumciCl"}
+### **Solución:** {#solución}
+
+\$P\_{0.45} {X \> 70} = 1 - P\_{0.45}{X \< 70} \\ = 1 -
+\\sum\_{i=0}\^{70} (\\frac{200}{i})(0.45)\^i(0.55)\^{200-i} \$
+:::
+
+::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\",\"height\":35}" executionInfo="{\"elapsed\":338,\"status\":\"ok\",\"timestamp\":1630459309723,\"user\":{\"displayName\":\"Mïjaíl\",\"photoUrl\":\"https://lh3.googleusercontent.com/a-/AOh14GjdZyLBMEjmWLLhhm-7SJgWsRi90GzsM5rncxb5VA=s64\",\"userId\":\"16399021666862393886\"},\"user_tz\":300}" id="n5DSWZWgZAkm" outputId="32185e4b-3bc6-4954-fc77-75f7eae1cd34"}
+``` python
+p = .45
+n = 200
+m = 70 
+sum(dbinom(x = 1:m, size = n, prob = p))
+```
+
+::: {.output .display_data}
+0.00258775174139801
+:::
+:::
+
+::: {.cell .markdown id="sVJ4SIiSjy84"}
+**Conclusión:** p está entre 0.01 y 0.001 por tanto es p \< .01 y es
+\"muy significativa\" o significante al nivel de 1%. Como es muy pequeño
+se rechaza la hipótesis nula por tanto el dato de servicio de ambulancia
+dice un dato confiable.
+:::
+
+::: {.cell .markdown id="CkrvuyZRlYrI"}
+# **9.13 Potencia de un antibiótico** {#913-potencia-de-un-antibiótico}
+
+![image.png](vertopal_f831805db08046958e88670ac9eb228a/851d9d5f8da5dafa097c22c6c2e75cf2651502b7.png)
+:::
+
+::: {.cell .markdown id="4315StAOmV9D"}
+### **Solución:** {#solución}
+
+**a)** \$H_0: \\mu = 80 \$ **b)** $H_a: \mu ≠ 80$
+:::
+
+::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\",\"height\":52}" executionInfo="{\"elapsed\":153,\"status\":\"ok\",\"timestamp\":1630387169685,\"user\":{\"displayName\":\"Mïjaíl\",\"photoUrl\":\"https://lh3.googleusercontent.com/a-/AOh14GjdZyLBMEjmWLLhhm-7SJgWsRi90GzsM5rncxb5VA=s64\",\"userId\":\"16399021666862393886\"},\"user_tz\":300}" id="ECM2jkfjlkgB" outputId="0be51b9c-93e9-4d6c-83ac-3400550f6844"}
+``` python
+x = 79.7
+mo = 80 
+s = .8
+n = 100
+a = .05
+value = 1-a/2
+value
+
+z = (x-mo)/(s/sqrt(n))
+z
+
+# RES a) H_0: \mu = 80 b) H_a: \mu /= 80 c) z = -3.75; rechaza H_0
+```
+
+::: {.output .display_data}
+0.975
+:::
+
+::: {.output .display_data}
+-3.74999999999996
+:::
+:::
+
+::: {.cell .markdown id="ErvY3YPioLXs"}
+**Conclusión:** 1.96 es el valor obtenido en las tablas de valores de z
+se busca que z \> $z_{a/2}$ o z \< $-z_{a/2}$ donde z = -3.75 y
+$z_{a/2}$ = 1.96. Como z cae en la región de rechazo se rechaza la
+hipótesis nula $H_0$ y se concluye que se refuta la afirmación del
+fabricante, este **NO** tiene una potencia media del 80%
+:::
+
+::: {.cell .markdown id="UbMstmXjr1va"}
+# **9.37 ¿Café o azul?** {#937-café-o-azul}
+
+![image.png](vertopal_f831805db08046958e88670ac9eb228a/b36d5345d518e710ad7cc435cf04d9a84734c144.png)
+:::
+
+::: {.cell .markdown id="UOzteGuItZ76"}
+### **Solución:** {#solución}
+
+Se busca decir que la propuesta es igual a 45% o diferente, por lo que
+las hipótesis son: \\ $H_0: p=.45$ contra $H_a:p ≠ .45$ \\ La ecuación
+para calular z es: \\ \$ z = \\frac{p\^{\'} -
+p_0}{\\sqrt{\\frac{p_oq_o}{n}}}\$ \\ donde $p' = x/n$
+:::
+
+::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\",\"height\":52}" executionInfo="{\"elapsed\":235,\"status\":\"ok\",\"timestamp\":1630459988441,\"user\":{\"displayName\":\"Mïjaíl\",\"photoUrl\":\"https://lh3.googleusercontent.com/a-/AOh14GjdZyLBMEjmWLLhhm-7SJgWsRi90GzsM5rncxb5VA=s64\",\"userId\":\"16399021666862393886\"},\"user_tz\":300}" id="yQKLx0zzsC6F" outputId="1b3ef964-4adb-4e0a-88f9-c8a39f7dda14"}
+``` python
+# como es a = 0.01 y a/2 = 0.005 se busca z tal que cumpla .9950
+z_a = 2.575
+
+po = .45
+qo = 1 - po
+n = 80
+x = 32
+p_ = x/n
+
+z = (p_ - po)/sqrt(po*qo/n)
+"Valor de z: "
+z
+# RES No, z = -.90
+```
+
+::: {.output .display_data}
+'Valor de z: '
+:::
+
+::: {.output .display_data}
+-0.898933149950989
+:::
+:::
+
+::: {.cell .markdown id="4JKi-l27oRVB"}
+**Conclusión:** Se tiene que $z=-0.89$ y $z_{a/2} = 2.575$, como z no es
+mayor que $z_{a/2}$ y tampoco menor que el negativo por lo tanto z no se
+encuentra en la zona de rechazo y la hipótesis nula **NO** se rechaza.
+Se concluye que **NO** hay pruebas para impugnar lo dicho en el
+periódico.
+:::
+
+::: {.cell .markdown id="FS7Snl0L0ClF"}
+# **Problema 10.5** {#problema-105}
+
+![image.png](vertopal_f831805db08046958e88670ac9eb228a/a7e1ea0c27966454a4c193d9fbc64ae1fc1ba9ba.png)
+:::
+
+::: {.cell .markdown id="7IQiJf4vnnKG"}
+### **Solución:** {#solución}
+:::
+
+::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\",\"height\":433}" executionInfo="{\"elapsed\":155,\"status\":\"ok\",\"timestamp\":1630392461577,\"user\":{\"displayName\":\"Mïjaíl\",\"photoUrl\":\"https://lh3.googleusercontent.com/a-/AOh14GjdZyLBMEjmWLLhhm-7SJgWsRi90GzsM5rncxb5VA=s64\",\"userId\":\"16399021666862393886\"},\"user_tz\":300}" id="FLT8FJPO0MuB" outputId="319cbeeb-3380-4d67-fcc2-a23f6d47afbb"}
+``` python
+datos = c(7.4,7.1,6.5,7.5,7.6,6.3,6.9,7.7,6.5,7.0)
+print("Media: ")
+x = mean(datos)
+x
+print("Desviación Estándar: ")
+s = sd(datos)
+s
+
+t.test(datos,conf.level = .99, mu = 7.5, alternative = c("two.sided"),correct=TRUE)
+print("Grados de libertad: ")
+m=length(datos)-1
+m
+print("Valor de t: ")
+t = (x - 7.5)/(s/sqrt(length(datos)))
+t
+print("Valor de t_a:")
+t_a = 2.821
+t_a 
+print("Región:")
+x - t_a*(s/sqrt(length(datos)))
+x + t_a*(s/sqrt(length(datos)))
+
+# RES a) 7.05 y .49 b) 7.497 c) Rechazar, H_o: t = -2.879 d) Simón
+```
+
+::: {.output .stream .stdout}
+    [1] "Media: "
+:::
+
+::: {.output .display_data}
+7.05
+:::
+
+::: {.output .stream .stdout}
+    [1] "Desviación Estándar: "
+:::
+
+::: {.output .display_data}
+0.499444135459057
+:::
+
+::: {.output .display_data}
+
+    	One Sample t-test
+
+    data:  datos
+    t = -2.8492, df = 9, p-value = 0.01911
+    alternative hypothesis: true mean is not equal to 7.5
+    99 percent confidence interval:
+     6.536727 7.563273
+    sample estimates:
+    mean of x 
+         7.05 
+:::
+
+::: {.output .stream .stdout}
+    [1] "Grados de libertad: "
+:::
+
+::: {.output .display_data}
+9
+:::
+
+::: {.output .stream .stdout}
+    [1] "Valor de t: "
+:::
+
+::: {.output .display_data}
+-2.84921745205361
+:::
+
+::: {.output .stream .stdout}
+    [1] "Valor de t_a:"
+:::
+
+::: {.output .display_data}
+2.821
+:::
+
+::: {.output .stream .stdout}
+    [1] "Región:"
+:::
+
+::: {.output .display_data}
+6.60445661085467
+:::
+
+::: {.output .display_data}
+7.49554338914533
+:::
+:::
+
+::: {.cell .markdown id="YYBHj1kOoRuB"}
+**Conclusión:** La región de rechazo es t \< $-t_a$mo sea que $H_0$ se
+puede rechazar si se cumple. Como no se cumple -2.84 \< -2.82 **Sí se
+cumple**, se concluye que se puede **rechazar** a $H_0$. Tanto el inciso
+b) como el c) Sí se confirman entre sí.
+:::
+
+::: {.cell .markdown id="9Rks2ehuTgIj"}
+# **Problema 10.37** {#problema-1037}
+
+![image.png](vertopal_f831805db08046958e88670ac9eb228a/5a6e8293b71f6eacc080ee4ab3c405ae4a9dd0a0.png)
+:::
+
+::: {.cell .markdown id="k4px0ZdYXpbU"}
+### **Solución:** {#solución}
+
+Buscamos que la diferencia sea mayor a cero, es decir \\
+$H_0 : \mu_d = 0$ \\ \$H_a : \\mu_d \\neq 0 \$ \\
+$\mu_d = \mu_A - \mu_B$ \\ Prueba de estadística: \\ \$ t =
+\\frac{\\overline{d}}{s_d \\sqrt{n}}\$ \\ donde: \\
+$n = # de diferencias$ \\ $\overline{d}$ = media de las diferencias \\
+$s_d$ = Desviación estándard de las diferencias muestrales \\
+$(n-1) = gl$ grados de libertad para las tablas de $\alpha$
+:::
+
+::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\",\"height\":347}" executionInfo="{\"elapsed\":158,\"status\":\"ok\",\"timestamp\":1630435244439,\"user\":{\"displayName\":\"Mïjaíl\",\"photoUrl\":\"https://lh3.googleusercontent.com/a-/AOh14GjdZyLBMEjmWLLhhm-7SJgWsRi90GzsM5rncxb5VA=s64\",\"userId\":\"16399021666862393886\"},\"user_tz\":300}" id="lT5CRZixTycG" outputId="7dd3731f-a8b5-4d7f-f484-a652e97e0589"}
+``` python
+p1 = c(1.3,1.6,1.1,1.4,1.7)
+p2 = c(1.2,1.5,1.1,1.2,1.8)
+x = p1-p2
+d = mean(x)
+sd = sd(x)
+n = length(x)
+gl = n-1 
+t = d/(sd*sqrt(n))
+t_a2 = 2.776
+"Valores t"
+t_a2
+t
+-t_a2
+"Intervalo de Confiana"
+d + t_a2*(sd/sqrt(n))
+d - t_a2*(sd/sqrt(n))
+"T Test"
+t.test(x,conf.level = .95, alternative = "two.sided")
+
+# RES a) No rechazar H_o: t = 1.177 b) p > .20 c) (-.082,.202) d) muestra aleatoria de distribución normal
+```
+
+::: {.output .display_data}
+'Valores t'
+:::
+
+::: {.output .display_data}
+2.776
+:::
+
+::: {.output .display_data}
+0.235339362165821
+:::
+
+::: {.output .display_data}
+-2.776
+:::
+
+::: {.output .display_data}
+'Intervalo de Confiana'
+:::
+
+::: {.output .display_data}
+0.201548781697336
+:::
+
+::: {.output .display_data}
+-0.0815487816973357
+:::
+
+::: {.output .display_data}
+'T Test'
+:::
+
+::: {.output .display_data}
+
+    	One Sample t-test
+
+    data:  x
+    t = 1.1767, df = 4, p-value = 0.3046
+    alternative hypothesis: true mean is not equal to 0
+    95 percent confidence interval:
+     -0.08157148  0.20157148
+    sample estimates:
+    mean of x 
+         0.06 
+:::
+:::
+
+::: {.cell .markdown id="oHfMMmHdTytG"}
+**Conclusión:** Como el valor de t no se encuentra en el rango de
+rechazo $-t_{a/2} > t > t_{a/2}$ no se rechaza la hipótesis nula $H_0$.
+El valor de t es 1.176, p = 0.30, el intervalo de confianza es
+(-0.08,0.20). Para que sus inferencias sean válidas se debe suponer que
+tienen distribución normal.
+:::
+
+::: {.cell .markdown id="mwH82hUmT80c"}
+# **Problema 7.2.2** {#problema-722}
+
+![image.png](vertopal_f831805db08046958e88670ac9eb228a/5b714be13771946c053a4c782fedf49de0069b2f.png)
+:::
+
+::: {.cell .markdown id="-WWJWaaQnP1J"}
+### **Solución:** {#solución}
+
+La hipótesis busca que la media sea menor a 60 años. \\ \$H_0 : \\mu =
+60 \$ \\ \$H_a : \\mu \< 60 \$ \\ $t < -t_{\alpha}$
+:::
+
+::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\",\"height\":260}" executionInfo="{\"elapsed\":144,\"status\":\"ok\",\"timestamp\":1630437862446,\"user\":{\"displayName\":\"Mïjaíl\",\"photoUrl\":\"https://lh3.googleusercontent.com/a-/AOh14GjdZyLBMEjmWLLhhm-7SJgWsRi90GzsM5rncxb5VA=s64\",\"userId\":\"16399021666862393886\"},\"user_tz\":300}" id="LxxjyuK3UJ5W" outputId="01341621-7468-44ef-8d65-55282a80c0a7"}
+``` python
+ages = c(62,62,68,48,51,60,51,57,57,41,62,50,53,34,62,61) 
+
+t.test(ages, mu = 60, alternative = 'less') # 'greater' 
+t_a = 1.753
+" "
+"t_a es: "
+t_a
+```
+
+::: {.output .display_data}
+
+    	One Sample t-test
+
+    data:  ages
+    t = -2.2822, df = 15, p-value = 0.01874
+    alternative hypothesis: true mean is less than 60
+    95 percent confidence interval:
+         -Inf 58.82618
+    sample estimates:
+    mean of x 
+      54.9375 
+:::
+
+::: {.output .display_data}
+' '
+:::
+
+::: {.output .display_data}
+'t_a es: '
+:::
+
+::: {.output .display_data}
+1.753
+:::
+:::
+
+::: {.cell .markdown id="S64i7mftT6Yh"}
+**Conclusión:** Como $t < -t_{a}$ o sea $-2.28 < -1.75$ se cumple la
+condición para rechazar $H_0$ y por lo tanto se puede concluir que la
+media de edad es menor a 60 años.
+:::
+
+::: {.cell .markdown id="PRtnPH98UKxJ"}
+# **Problema 7.2.12** {#problema-7212}
+
+![image.png](vertopal_f831805db08046958e88670ac9eb228a/6d1cf73707762bd5198686458400dee571522600.png)
+:::
+
+::: {.cell .markdown id="nmou8aAUve4M"}
+Buscamos que la diferencia sea mayor a cero, es decir
+$H_0:μ_d = 12$
+$H_a:μ_d ≠ 12$
+Prueba de estadística:
+$t_{a/2} < t < -t_{a/2}$
+:::
+
+::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\",\"height\":208}" executionInfo="{\"elapsed\":140,\"status\":\"ok\",\"timestamp\":1630439571852,\"user\":{\"displayName\":\"Mïjaíl\",\"photoUrl\":\"https://lh3.googleusercontent.com/a-/AOh14GjdZyLBMEjmWLLhhm-7SJgWsRi90GzsM5rncxb5VA=s64\",\"userId\":\"16399021666862393886\"},\"user_tz\":300}" id="Xd47H-DHUSBl" outputId="cb692c68-d6a9-4759-f3fe-b9dbebce2a17"}
+``` python
+cells = c(14,14.1,14.5,13.2,11.2,14,14.1,12.2,11.1,13.7,13.2,16,12.8,14.4,12.9)
+t_a2 = 2.145
+t.test(cells,mu=12)
+```
+
+::: {.output .display_data}
+
+    	One Sample t-test
+
+    data:  cells
+    t = 4.31, df = 14, p-value = 0.0007195
+    alternative hypothesis: true mean is not equal to 12
+    95 percent confidence interval:
+     12.71672 14.13661
+    sample estimates:
+    mean of x 
+     13.42667 
+:::
+:::
+
+::: {.cell .markdown id="Dcbul0xuT6rb"}
+**Conclusión:** Puesto que se cumple la prueba estadística, se rechaza
+la hipótesis nula y se concluye que la media de celulas en ml no es 12.
+:::
+
+::: {.cell .markdown id="fKX97qyKUTFU"}
+# **Problema 7.2.18** {#problema-7218}
+
+![image.png](vertopal_f831805db08046958e88670ac9eb228a/2420329a24ab0fabd5c7e0d53f1608b5a43bd01e.png)
+:::
+
+::: {.cell .markdown id="vD38W4LuB--G"}
+### **Solución:** {#solución}
+
+Buscamos que la media sea mayor a 130, es decir
+$H_0:μ_d = 130$
+$H_a:μ_d > 130$
+Prueba de estadística:
+\$t\_{a} \< t \$
+:::
+
+::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\",\"height\":35}" executionInfo="{\"elapsed\":175,\"status\":\"ok\",\"timestamp\":1630444360642,\"user\":{\"displayName\":\"Mïjaíl\",\"photoUrl\":\"https://lh3.googleusercontent.com/a-/AOh14GjdZyLBMEjmWLLhhm-7SJgWsRi90GzsM5rncxb5VA=s64\",\"userId\":\"16399021666862393886\"},\"user_tz\":300}" id="ASC7vdrDUZxK" outputId="ac32b97d-548f-47b4-d89a-e82fded192d3"}
+``` python
+s = 16
+n = 64
+x = 133 
+a = 0.05
+mu = 130
+t_a = 1.645
+t = (x - mu) / (s/sqrt(n))
+t 
+```
+
+::: {.output .display_data}
+1.5
+:::
+:::
+
+::: {.cell .markdown id="xGcI3FkiT7A6"}
+**Conclusión:** Como la relación no se cumple (1.645 \< 1.5) entonces
+$H_0$ no se rechaza y por lo tanto no se puede concluir que la media de
+presión de sangre sistólica sea mayor que 130.
+:::
+
+::: {.cell .markdown id="e13154p0UiYd"}
+# **Problema 7.3.10** {#problema-7310}
+
+![image.png](vertopal_f831805db08046958e88670ac9eb228a/e4e4dc853ba76fbf1440d44751f3b16544d7cf31.png)
+:::
+
+::: {.cell .markdown id="1flCnA43EjGN"}
+### **Solución:** {#solución}
+
+Buscamos que la diferencia sea diferente de 0, es decir
+$H_0:μ_A - μ_B = 0$
+$H_a:μ_A - μ_B \neq 0$
+Prueba de estadística:
+\$t\_{a/2} \< t \< -t\_{A/2} \$
+:::
+
+::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\",\"height\":225}" executionInfo="{\"elapsed\":146,\"status\":\"ok\",\"timestamp\":1630445307536,\"user\":{\"displayName\":\"Mïjaíl\",\"photoUrl\":\"https://lh3.googleusercontent.com/a-/AOh14GjdZyLBMEjmWLLhhm-7SJgWsRi90GzsM5rncxb5VA=s64\",\"userId\":\"16399021666862393886\"},\"user_tz\":300}" id="i55hUr-bUmaT" outputId="f3082583-3ac8-497f-f56d-49b72bac5071"}
+``` python
+a = c(9.5,10.5,9,9.75,10,13,10,13.5,10,9.5,10,9.75)
+b = c(12.5,9.5,13.5,13.75,12,13.75,12.5,9.5,12,13.5,12,12)
+x = a-b
+
+t.test(x,alternative = "two.sided")
+"t_a/2 = 2.201"
+```
+
+::: {.output .display_data}
+
+    	One Sample t-test
+
+    data:  x
+    t = -2.6796, df = 11, p-value = 0.02143
+    alternative hypothesis: true mean is not equal to 0
+    95 percent confidence interval:
+     -3.3392298 -0.3274369
+    sample estimates:
+    mean of x 
+    -1.833333 
+:::
+
+::: {.output .display_data}
+'t_a/2 = 2.201'
+:::
+:::
+
+::: {.cell .markdown id="iHtLpx2xT7FX"}
+**Conclusión:** Vemos que la relación 2.201 \< -2.679 \< -2.201 se
+cumple de un lado y podemos rechazar la hipótesis nula y concluir que la
+diferencia entre las medias es distinto de cero y la media de población
+de niños **Sí** difiere.
+:::
+
+::: {.cell .markdown id="teKdiWxMUqmg"}
+# **Problema 7.5.2** {#problema-752}
+
+![image.png](vertopal_f831805db08046958e88670ac9eb228a/0e36d7e97c14da1c7edcbb9e661d50ea4c0e1f1d.png)
+:::
+
+::: {.cell .markdown id="S1PDZjI8H9qI"}
+### **Solución:** {#solución}
+
+Se busca decir que la propuesta es igual a 15% o diferente, por lo que
+las hipótesis son: \\ $H_0: p < .15$ contra $H_a:p > .15$ \\ La ecuación
+para calular z es: \\ \$ z = \\frac{p\^{\'} -
+p_0}{\\sqrt{\\frac{p_oq_o}{n}}}\$ \\ donde $p' = x/n$ \\ La prueba será
+$z > 1.645$
+:::
+
+::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\",\"height\":35}" executionInfo="{\"elapsed\":198,\"status\":\"ok\",\"timestamp\":1630445801753,\"user\":{\"displayName\":\"Mïjaíl\",\"photoUrl\":\"https://lh3.googleusercontent.com/a-/AOh14GjdZyLBMEjmWLLhhm-7SJgWsRi90GzsM5rncxb5VA=s64\",\"userId\":\"16399021666862393886\"},\"user_tz\":300}" id="T3HMHutuUuV1" outputId="1fa3faec-c31c-45bb-837c-7a9629f0aa41"}
+``` python
+n = 2428
+x = 461
+po = .15
+qo = 1 - po
+p_ = x/n
+
+z = (p_ - po) / sqrt((po*qo)/n)
+z
+```
+
+::: {.output .display_data}
+5.50168756614951
+:::
+:::
+
+::: {.cell .markdown id="XI5z9S90Ub7X"}
+**Conclusión:** Como la relación $5.5 > 1.645$ se cumple, se rechaza la
+hipótesis nula y se concluye que la media de niños gorditos es mayor al
+15%.
+:::
+
+::: {.cell .markdown id="8vKx7EvpUyCw"}
+# **Problema 7.8.7** {#problema-787}
+
+![image.png](vertopal_f831805db08046958e88670ac9eb228a/dbec2c96c1bce49280f61f85d5757921a891ef81.png)
+:::
+
+::: {.cell .markdown id="Zmd6kxNfLIsb"}
+### **Solución:** {#solución}
+
+Buscamos que la diferencia sea diferente de 0, es decir
+\$H_0: \\sigma_A\^2 \< \\sigma_B\^2 \$
+\$H_a: \\sigma_A\^2 \> \\sigma_B\^2 \$
+Prueba de estadística:
+\$ V.R. = F = \\frac{s_A\^2}{s_B\^2}\$
+y
+\$ F \> F\_{a}\$
+Suponemos que:
+Las muestras son independientes. Suponemos que las cargas en el momento
+de la falla en ambas poblaciones tienen una distribución aproximadamente
+normal y que la varianza de A es má grande.
+:::
+
+::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\",\"height\":52}" executionInfo="{\"elapsed\":143,\"status\":\"ok\",\"timestamp\":1630448755330,\"user\":{\"displayName\":\"Mïjaíl\",\"photoUrl\":\"https://lh3.googleusercontent.com/a-/AOh14GjdZyLBMEjmWLLhhm-7SJgWsRi90GzsM5rncxb5VA=s64\",\"userId\":\"16399021666862393886\"},\"user_tz\":300}" id="fb57T6HaU350" outputId="26904c34-ac2d-466d-9dda-cf572247b6bf"}
+``` python
+a = c(54,99,105,46,70,87,55,58,139,91)
+b = c(93,91,93,150,80,104,128,83,88,95,94,97)
+
+o1 = var(a)
+o2 = var(b)
+vr = o1/o2
+f_a = 2.27 
+gl1 = 9
+gl2 = 11
+vr
+f_a
+
+# RES V:R: = 2:1417; p > .10
+```
+
+::: {.output .display_data}
+2.14174402678436
+:::
+
+::: {.output .display_data}
+2.27
+:::
+:::
+
+::: {.cell .markdown id="e0ekxZonUcB7"}
+**Conclusión:** Como la relación 2.14 \> 2.27 no se cumple, no se
+rechaza la hipótesis nula y no se puede concluir que la varianza de A
+sea mayor que la de B.
+:::
+
+::: {.cell .markdown id="rcRI4yqoU6Ki"}
+# **Problema 7.10.2** {#problema-7102}
+
+![image.png](vertopal_f831805db08046958e88670ac9eb228a/b684e6c29fc12b86c711bb6bf7001cbce21eb726.png)
+:::
+
+::: {.cell .markdown id="RIj1modQVyOa"}
+### **Solución:** {#solución}
+
+Para calcular n y C:
+$C = \mu_0 - z_0(\frac{\sigma}{\sqrt(n)})$
+$C = \mu_1 + z_1(\frac{\sigma}{\sqrt(n)})$
+y
+$n = [ \frac{(z_o - z_1)\sigma}{\mu_0 - \mu_1}]^2$
+:::
+
+::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\",\"height\":69}" executionInfo="{\"elapsed\":144,\"status\":\"ok\",\"timestamp\":1630453243833,\"user\":{\"displayName\":\"Mïjaíl\",\"photoUrl\":\"https://lh3.googleusercontent.com/a-/AOh14GjdZyLBMEjmWLLhhm-7SJgWsRi90GzsM5rncxb5VA=s64\",\"userId\":\"16399021666862393886\"},\"user_tz\":300}" id="TjxlOd-aVC-u" outputId="a082bc45-6b2e-4ce0-a178-551bfe0faa10"}
+``` python
+mo = 4.50
+n = 16
+o = .02
+a = .01
+b = .05
+m1 = 4.52
+zo = -2.33
+z1 = 1.645
+
+Co = mo - zo*(o/sqrt(n)) 
+C1 = m1 - z1*(o/sqrt(n))
+Co
+C1
+n = (o*( zo - z1)/(mo - m1) )^2
+n
+```
+
+::: {.output .display_data}
+4.51165
+:::
+
+::: {.output .display_data}
+4.511775
+:::
+
+::: {.output .display_data}
+15.8006250000007
+:::
+:::
+
+::: {.cell .markdown id="uI3hk-SKUwLv"}
+**Conclusión:** Se selecciona una muestra de 16 datos y se calcula
+$\overline{x}$, if $\overline{x} < 4.51$, se rechaza $H_0$. Si
+$\overline{x} > 4.51$, no se rechaza $H_0$
+:::
